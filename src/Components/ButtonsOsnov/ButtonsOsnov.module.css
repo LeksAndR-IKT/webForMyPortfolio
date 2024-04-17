@@ -1,0 +1,41 @@
+.left {
+    float: left;
+    background-color: #305478;
+    color: #1a0202;
+    opacity: .8;
+    display: flex;
+    justify-content: left;/*отображение позиции кнопки*/
+    border: 1px solid black;
+
+}
+
+.left a {
+    width: 250px;/*Размер поля для кнопки*/
+    background-color: #5EBEC4;
+    color: #000;
+    border-radius: 7px;
+    height: 25px;/*Размер поля для кнопки*/
+    margin: 20px/*расстояние между кнопками*/
+}
+
+.left form a {
+    display: flex;
+    justify-content: center;/*отображение название кнопки*/
+    text-decoration: none;
+    
+}
+
+.left a:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.left a.active{
+    color: #000;
+    border: 1px solid #000;
+    background-color: aqua;
+}
+
+.def{
+    color:#000;
+}

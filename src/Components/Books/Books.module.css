@@ -1,0 +1,19 @@
+.osnov {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0%;
+    padding: 0%;
+    text-align: center;
+}
+
+.oneContainer {
+    min-height: 320px;
+    border-top: 1px solid black;
+}
+
+.twoContainer {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    min-height: 320px;
+    
+}

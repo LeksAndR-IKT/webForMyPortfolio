@@ -1,0 +1,14 @@
+.pagener{
+    font-weight: bold;
+    cursor: pointer;
+}
+.span{
+    cursor: pointer;
+}
+.foto{
+    width: 80px;
+    height: 80px;
+}
+a{
+    cursor: pointer;
+}

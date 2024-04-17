@@ -1,0 +1,31 @@
+.osnov{
+    display: grid;
+    grid-template-columns: 2fr 7fr;
+}
+.content{
+    position: relative;
+    top:-22px;
+    background-color: #082D1A;
+    background: rgba(8, 45, 26, 0.85);
+}
+.logik{
+    position: relative;
+    top:-22px;
+    text-align: center;
+}
+.logik button{
+    background-color: aqua;
+    color: black;
+    border-radius: 15px;
+    margin: 7px;
+}
+.logik button:hover{
+    cursor: pointer;
+    background-color: blueviolet;
+    color:cornsilk;
+}
+.logik textarea{
+    width: 98%;
+    min-height: 100px;
+    max-width: auto;
+}

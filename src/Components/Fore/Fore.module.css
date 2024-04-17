@@ -1,0 +1,32 @@
+.fraz{
+    position: relative;
+    top:-22px;
+    font-weight: bold;
+    background: rgba(8, 45, 26, 0.85);
+}
+.osnov{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.func{
+    position: relative;
+    top:-22px;
+    background-color: aqua;
+    text-align: center;
+    background: rgba(8, 45, 26, 0.85);
+}
+.func textarea{
+    width: 99%;
+    height: 100px;
+}
+.buttons{
+    color:red;
+    background-color: blue;
+    border-radius: 15px;
+}
+
+.buttons:hover{
+    color:white;
+    background-color: black;
+    cursor: pointer;
+}

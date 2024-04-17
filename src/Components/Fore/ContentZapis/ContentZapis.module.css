@@ -1,0 +1,46 @@
+.osnov{
+    border: 1px solid white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    background-color: #082D1A;
+    color: #37A0CE;
+    margin: 10px;
+    padding: 7px;
+}
+
+.logik{
+    text-align: center;
+}
+
+.osnov img{
+    height: 20px;
+    width: 20px;
+    position: relative;
+    left: -3px
+}
+.inpat{
+    border: 1px solid white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    background-color: #082D1A;
+    color: #37A0CE;
+    margin: 10px;
+    padding: 7px;
+    color:white;
+    width: 97%;
+    height: 150px;
+}
+input::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+}
+.osnov button{
+    height: 30px;
+    width:  30px;
+    background-image: url("./delet.png");
+    background-color: #082D1A;
+}
+.osnov button:hover{
+    cursor: pointer;
+    background-color: #37A0CE;
+}

@@ -1,0 +1,35 @@
+.osnov{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border: 1px solid black;
+    padding: 4px;
+    background-color: chartreuse;
+}
+.nameBook{
+    font-weight: bold;
+}
+.nameAfter{
+    position: relative;
+    right: 27%;
+}
+.nameAfter button{
+    position: relative;
+    left: 40px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+.nameAfter button:hover{
+    cursor: pointer;
+}
+.delete{
+    background-image: url("https://img2.freepng.ru/20180427/dle/kisspng-computer-icons-5ae2d5c4ad3409.9653322115248153007095.jpg");
+    background-size: 17px 17px;
+    position: relative;
+    top: 5px
+}

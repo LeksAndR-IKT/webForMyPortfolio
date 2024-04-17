@@ -1,0 +1,36 @@
+.buttonsOtrisovka{
+  display: grid;
+  grid-template-columns: 4fr 17fr;
+  grid-template-areas: 
+  'futer futer'
+  'functional content'
+  'information information'
+  'down down';
+}
+.futer{
+  min-height: 70px;
+  max-height: auto;
+  grid-area: futer;
+  background-color: beige;
+  text-align: center;
+}
+.functionality{
+  grid-area: functional;
+}
+
+.Otrisovka{
+  grid-area: content;
+  border: 1px solid black;
+}
+.information{
+  grid-area: information;
+}
+
+.down{
+  grid-area: down;
+  position: absolute;
+	left: 0;
+	bottom: 0;
+  width: 99%;
+  text-align: start;
+}

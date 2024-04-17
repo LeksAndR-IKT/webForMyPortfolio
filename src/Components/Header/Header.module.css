@@ -1,0 +1,11 @@
+.osnov{
+    background-color: #A0AECD;
+    min-height: 70px;
+    max-height: auto;
+}
+.act{
+    background-color: rgb(46, 240, 28);
+}
+.desAct{
+    background-color: rgb(230, 51, 16);
+}
