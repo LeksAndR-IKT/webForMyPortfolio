@@ -5,9 +5,10 @@ import React from 'react'
 import {UsersPropsType} from './UsersContainer'
 
 let Users: React.FC<UsersPropsType> = (props) => {
-    debugger
+    //debugger
     if (props.Users.length < 1){
         props.setUsers(props.currentPage, props.usersCountInPage)
+        console.log(props.Users)
     }
     let mass: Array<number> = []
 
@@ -29,10 +30,11 @@ let Users: React.FC<UsersPropsType> = (props) => {
         {
             props.Users.map((el) => {
                 return <div key={el.id} className={s.user}>
-                    <NavLink to='/profile'><img src={(!el?.photos?.small)? el?.photos?.small : defaultAva} className={s.foto} alt=""/></NavLink>
+                    <NavLink to='/profile'><img src={ (el.photos.small === null)?defaultAva:el.photos.small} className={s.foto} alt="" /></NavLink>
                     <div className={s.name}>{el.name}</div>
                     <div className={s.status}>{el.status}</div>
                 </div>
+                
             })
         }
         <button >кнопка</button>

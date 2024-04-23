@@ -1,4 +1,4 @@
-import { StoreType } from './../store';
+import { StoreType } from '../../store';
 import axios from "axios"
 import { ThunkAction } from "redux-thunk"
 

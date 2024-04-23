@@ -2,10 +2,11 @@ import ForeMyThroudReducer from './Reducers/ForeMyThroudReducer.ts';
 import FreeBestChitatsReducer from './Reducers/FreeBestChitatsReducer.ts';
 import { applyMiddleware, combineReducers,  legacy_createStore as createStore } from 'redux'
 import UsersReducer from './Reducers/UsersReducer.ts';
-import APIworkReducer from './Reducers/APIworkReducer.ts';
+import APIworkReducer from './Reducers/APIreducers/APIworkReducer.ts';
 import ProfileReducer from './Reducers/ProfileReducer.ts'
 import BooksReducer from './Reducers/BooksReducer.ts';
 import { thunk } from 'redux-thunk';
+import NASAreducer from './Reducers/APIreducers/NASAreducer.ts';
 
 
 let reducers = combineReducers(
@@ -15,7 +16,8 @@ let reducers = combineReducers(
     Users: UsersReducer,
     APIwork: APIworkReducer,
     Profile: ProfileReducer,
-    Books: BooksReducer
+    Books: BooksReducer,
+    NASA: NASAreducer
   })
 
 

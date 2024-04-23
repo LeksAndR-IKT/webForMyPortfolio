@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import APIwork from "./APIwork.tsx"
-import {getIpTC, getGeoLocation, ActionsTypes, InitialStateAPI, getPriceBTC_TC } from '../../Reducers/APIworkReducer.ts'
+import {getIpTC, getGeoLocation, ActionsTypes, InitialStateAPI, getPriceBTC_TC } from '../../Reducers/APIreducers/APIworkReducer.ts'
 import {StoreType} from '../../store.ts'
 import { ThunkDispatch } from "redux-thunk"
 

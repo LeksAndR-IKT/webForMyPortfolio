@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './APIwork.module.css'
 import { TypeProps } from './APIworkContainer'
+import { NavLink } from 'react-router-dom'
 
 let APIwork: React.FC<TypeProps> = (props) => {
 
@@ -28,6 +29,10 @@ let APIwork: React.FC<TypeProps> = (props) => {
 
         <div className={s.butFree}>
             <button onClick={getPriceBTC}>Узнать цену на Биткоин (BTC)</button>
+        </div>
+
+        <div className={s.butNASA}>
+                <NavLink to='/fotoNasa'>Посмотреть фотографии космоса, сделанные NASA</NavLink>
         </div>
 
     </div>
