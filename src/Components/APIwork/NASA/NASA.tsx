@@ -1,8 +1,13 @@
 import React from "react"
+import s from './NASA.module.css'
 
 let NASA: React.FC<any> = (props) => {
+    
     return <div>
-        NASA
+        <div className={s.pages}><span>0</span></div>
+        <div>
+    
+        </div>
     </div>
 }
 
