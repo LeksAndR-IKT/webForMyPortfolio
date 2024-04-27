@@ -1,14 +1,20 @@
+import { ThunkAction } from 'redux-thunk';
 import axios from "axios"
-
+import { StoreType } from '../../store';
+export type objects = {
+    foto: Array<string  | undefined>
+    info: {date: Array<string | null>, dop_info: Array<string| null>}
+}
 export type initialStateNASAType = {
-objects: any
+objects: objects
 numberPage: number
 }
 let initialStateNASA: initialStateNASAType = {
     objects: {
         foto: [],
         info: {
-
+            date: [],
+            dop_info: []
         }
     },
     numberPage: 0
@@ -25,10 +31,19 @@ const NASAreducer = (state: initialStateNASAType = initialStateNASA, action: Act
         }
         case(getNewPageFoto): 
         {
-            //let newFoto = action.fotos
+            const fotos = action.foto.map((el) => el.img_src)
+            const info_date = action.foto.map((el) => el.earth_date)
+            const info_dop = action.foto.map((el) => el.camera.full_name)
             return {
                 ...state,
-                objects: {...state.objects}
+                objects: {
+                    foto: [...fotos],
+                    info: {
+                        date: [...info_date],
+                        dop_info: [...info_dop]
+                    }
+                }
+                
             }
         }
         
@@ -38,7 +53,7 @@ const NASAreducer = (state: initialStateNASAType = initialStateNASA, action: Act
         }
     }
 }
-type ActionsTypes = NewPageType | getNewPageFotoType
+export type ActionsTypes = NewPageType | getNewPageFotoType
 
 const pushNewNumberPageOfFoto = "pushNewNumberPageOfFoto"
 const getNewPageFoto = "getNewPageFoto"
@@ -58,11 +73,11 @@ type NewPageType = {
 export const setNumberPageAC = (numberPage: number):NewPageType => {//переключение страничек
     return ({type: pushNewNumberPageOfFoto, numberPage})
 }
-export const getPhotoSpaceTC = () => {//запрос
+export const getPhotoSpaceTC = (numberPage: number): ThunkAction<Promise<void>, StoreType, unknown, ActionsTypes> => {//запрос
     return async (dispatch) => {
-        let fot = await axios.get("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=DEMO_KEY&sol=1000")
-
-        console.log(fot.data.photos[0].img_src)
+        let fot = await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=DEMO_KEY&sol=${numberPage}`)
+        dispatch(getNewPageFotoTypeAC(fot.data.photos))
+        //console.log(fot.data.photos[0].img_src)
     }
 }
 
