@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
-import NASA from "./NASA"
-import { ActionsTypes, getPhotoSpaceTC, objects } from "../../../Reducers/APIreducers/NASAreducer"
+import NASA from "./NASA.tsx"
+import { ActionsTypes, getPhotoSpaceTC, objects } from "../../../Reducers/APIreducers/NASAreducer.ts"
 import { StoreType } from "../../../store"
 import { ThunkDispatch } from "redux-thunk"
 

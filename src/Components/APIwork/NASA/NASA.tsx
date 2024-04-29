@@ -6,10 +6,15 @@ import { PropsToNasa } from "./NASAContainer"
 
 let NASA: React.FC<PropsToNasa> = (props) => {
     let getFoto = (e: React.MouseEvent<HTMLElement>) => {
+        debugger
         e.preventDefault()
-        //props.switchingFotos(1)
+        let num = 3
+        props.switchingFotos(num)
     }
-     const otrisovka = props.DATA?.foto.map((el) => <div> <img src={el} alt = ""></img></div>)
+    let FocusInImg = () => {
+        console.log('asd')
+    }
+     const otrisovka = props.DATA?.foto.map((el) => <div className={s.foto} ><img src={el} tabIndex={1} alt = "" onBlur={()=>{FocusInImg()}}></img> </div>)
     return <div>
         <div className={s.pages}><span onClick={getFoto}>1</span></div>
         <div>

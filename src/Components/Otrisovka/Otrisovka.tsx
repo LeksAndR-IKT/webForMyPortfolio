@@ -8,7 +8,7 @@ import APIworkContiner from '../APIwork/APIworkContainer.tsx';
 import ProfileContainer from '../Profile/ProfileContainer.tsx';
 import BooksContainer from '../Books/BooksContainer.tsx';
 import React from 'react';
-import NASA from '../APIwork/NASA/NASA.tsx';
+import NASAContainer from '../APIwork/NASA/NASAContainer.tsx';
 
 let Otrisovka: React.FC<any> = (props) => {
 
@@ -23,7 +23,7 @@ let Otrisovka: React.FC<any> = (props) => {
                     <Route path='/users' element={<UsersContainer />} />
                     <Route path='/trening' element={<APIworkContiner />} />
                     <Route path='/profile/:userId' element={<ProfileContainer />} />
-                    <Route path='/fotoNasa' element={<NASA/>}/>
+                    <Route path='/fotoNasa' element={<NASAContainer/>}/>
                     <Route path='/' element={<Defautes />} />
                 </Routes>
             </form> 
