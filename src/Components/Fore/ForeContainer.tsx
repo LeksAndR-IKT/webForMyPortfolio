@@ -22,5 +22,5 @@ let mapDispatchToProps = (dispatch: Dispatch<ActionsTypes>): MapDispatchToProps 
         }
     }
 }
-const ForeContainer = connect<MpStateToProps, MapDispatchToProps>(mapStateToProps, mapDispatchToProps)(Fore)
+const ForeContainer = connect(mapStateToProps, mapDispatchToProps)(Fore)
 export default ForeContainer;

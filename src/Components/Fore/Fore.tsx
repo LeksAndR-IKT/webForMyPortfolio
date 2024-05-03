@@ -1,3 +1,4 @@
+// @ts-ignore
 import s from './Fore.module.css'
 import React, { useRef, useState } from 'react';
 import ContentZapisContainer from './ContentZapis/ContentZapisContainer.tsx';
@@ -6,6 +7,7 @@ let Fore: React.FC <any> = (props) => {
    
     let refForNewZapis = useRef<HTMLTextAreaElement>(null)
     const [value, setValue] = useState('')
+
     let addOneThought = (e: React.MouseEvent<HTMLElement>) => {//добавление новой цитаты ( Fore.jsx )
         e.preventDefault()
         props.addOneThought(value)

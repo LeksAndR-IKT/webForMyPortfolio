@@ -1,4 +1,5 @@
 import React from "react"
+// @ts-ignore
 import s from './NASA.module.css'
 import { PropsToNasa } from "./NASAContainer"
 //import axios from "axios"

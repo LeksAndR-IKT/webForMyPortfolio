@@ -1,4 +1,5 @@
 export type InitialStateFore = {
+  currentText: string
   str: Array<{text: string, id: number, result: boolean}>
 }
 class onePost {
@@ -12,6 +13,7 @@ class onePost {
   }
 }
 let firstState: InitialStateFore = {
+  currentText: '',
   str: [
     {
       text: 'Отличное настроение – это только твой выбор. Плохое настроение – это только твой выбор. Грусть – это только твой выбор. Все зависит только от тебя самого. Расстался с девушкой? Проиграл деньги? Потерял мотивацию? Так кто тебе виноват? – Только ты сам! Ты сделал неправильный выбор девушки или неправильно поступил с ней, ты решил положиться на удачу и проиграл, ты не заряжаешь себя мотивацией каждый день и не напоминаешь себе самому каждый день ради чего ты начинал.',
@@ -105,7 +107,6 @@ const ForeMyThroudReducer = (state = firstState, action: ActionsTypes): InitialS
 }
 export type ActionsTypes = deleteZapissActionCreatorType | reverteActionCreatorType | downEnterActionCreatorType | 
 refactorTextActionCretorType | addOneThoughtActionCreaterType
-
 
 type deleteZapissActionCreatorType = {
   id: number

@@ -1,5 +1,5 @@
 import { ConnectedProps, connect } from "react-redux"
-import Users from "./Users.tsx"
+import Users from "./UsersClasses.jsx"
 import { switchingAC, setUsersTC, ActionsTypes} from '../../Reducers/UsersReducer.ts'
 import { StoreType } from "../../store.ts"
 import { ThunkDispatch } from "redux-thunk"
@@ -40,6 +40,6 @@ let mapDispatchToProps = (dispatch: ThunkDispatch<StoreType, {}, ActionsTypes>):
 
 let firstCallConnect = connect(mapStateToProps, mapDispatchToProps)
 export type UsersPropsType = ConnectedProps<typeof firstCallConnect>
-let UsersContainer = firstCallConnect(Users)
+let UsersContainer = firstCallConnect(Users as any)
 
 export default UsersContainer

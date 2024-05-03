@@ -1,5 +1,7 @@
+// @ts-ignore
 import s from './BestChitats.module.css'
 import { TypeProps } from './BestChitatsContainer'
+// @ts-ignore
 import delet from './delet.png'
 import React, { useRef } from 'react'
 

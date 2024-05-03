@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+// @ts-ignore
 import s from './Otrisovka.module.css'
 import FreeContainer from '../Free/FreeContainer.tsx';
 import ForeContainer from '../Fore/ForeContainer.tsx';
