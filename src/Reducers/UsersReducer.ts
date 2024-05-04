@@ -18,6 +18,7 @@ let localState = {
 const setUsersToState = "setUsersToState"
 const setTotalUsersCount = "setTotalUsersCount"
 const switching = "switching"
+const getTotalCount = "getTotalCount"
 
 const UsersReducer = (state = localState, action: ActionsTypes): InitialStateUsers => {
     switch(action.type){
@@ -42,12 +43,25 @@ const UsersReducer = (state = localState, action: ActionsTypes): InitialStateUse
                 currentPage: action.numberPage
             }
         }
+        case(getTotalCount): 
+        {
+            return {
+                ...state,
+                totalUsersCount: Math.ceil(action.countUsers/5)
+            }
+        }
         default:
             {
                 return state
             }
     }
 }
+
+type getTotalCountType = {
+    type: typeof getTotalCount
+    countUsers: number
+}
+export let getTotalCountAC = (countUsers: number): getTotalCountType => ({type: getTotalCount, countUsers})
 type setUsersACType = {
     type: typeof setUsersToState
     users: Array<any>
@@ -64,7 +78,7 @@ type switchingACType = {
 }
 export let switchingAC = (numberPage: number):switchingACType => {return ({numberPage, type: switching})}
 
-export type ActionsTypes = switchingACType | updateCountUsersACType | setUsersACType
+export type ActionsTypes = switchingACType | updateCountUsersACType | setUsersACType | getTotalCountType
 
 export type Thunks = ThunkAction<Promise<void>, any, unknown, ActionsTypes>
 
@@ -73,7 +87,7 @@ export const setUsersTC = (page: number, count: number): Thunks => {
         let res = await axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${count}`)
         dispatch(setUsersAC(res.data.items))
         dispatch(updateCountUsersAC(res.data.totalCount))
-        console.log(res.data.items)
+        dispatch(getTotalCountAC(res.data.totalCount))
     }
 }
 
