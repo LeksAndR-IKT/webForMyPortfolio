@@ -1,12 +1,8 @@
 import axios from "axios"
-import { ThunkAction } from "redux-thunk"
-export type InitialStateUsers = {
-    users: Array<any>
-    numberPage: number
-    usersCountInPage: number
-    totalUsersCount:  number
-    currentPage:      number 
-}
+import {InitialStateUsers, getTotalCountType, setUsersACType, updateCountUsersACType,
+    switchingACType, ActionsTypes, Thunks
+} from "./TypesForReducers"
+
 let localState = {
     users: [],//пользователи
     numberPage:1000,//номер страницы пользователей
@@ -57,30 +53,13 @@ const UsersReducer = (state = localState, action: ActionsTypes): InitialStateUse
     }
 }
 
-type getTotalCountType = {
-    type: typeof getTotalCount
-    countUsers: number
-}
 export let getTotalCountAC = (countUsers: number): getTotalCountType => ({type: getTotalCount, countUsers})
-type setUsersACType = {
-    type: typeof setUsersToState
-    users: Array<any>
-}
+
 export let setUsersAC = (users: Array<any>): setUsersACType => {return ({type: setUsersToState, users})}
-type updateCountUsersACType = {
-    type: typeof setTotalUsersCount
-    totalCount: number
-}
+
 export let updateCountUsersAC = (totalCount: number): updateCountUsersACType => {return ({type:setTotalUsersCount , totalCount})}
-type switchingACType = {
-    type: typeof switching
-    numberPage: number
-}
+
 export let switchingAC = (numberPage: number):switchingACType => {return ({numberPage, type: switching})}
-
-export type ActionsTypes = switchingACType | updateCountUsersACType | setUsersACType | getTotalCountType
-
-export type Thunks = ThunkAction<Promise<void>, any, unknown, ActionsTypes>
 
 export const setUsersTC = (page: number, count: number): Thunks => {
     return async function (dispatch) {

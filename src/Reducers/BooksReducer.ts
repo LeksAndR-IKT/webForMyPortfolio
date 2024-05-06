@@ -1,7 +1,4 @@
-export type InitialStateBook = {
-    booksRead: Array<{nameAfter: string, nameBook: string, id: number}>
-    recommendedBooks: Array<{nameAfter: string, nameBook: string, id: number}>
-}
+import {InitialStateBook, DeleteBookReadACType, deleteBookRecomen, SvapRightACType} from './TypesForReducers'
 
 let locationState: InitialStateBook = {
     booksRead: [
@@ -82,22 +79,13 @@ const BooksReducer = (state = locationState, action: ActionsTypes): InitialState
         }
     }
 }
+
 export type ActionsTypes = DeleteBookReadACType | deleteBookRecomen | SvapRightACType
 
-
-type DeleteBookReadACType = {
-    type: typeof DELETE_BOOKS_READ
-    id: number
-}
 export const deleteBookReadAC = (id: number): DeleteBookReadACType => {return ({type:DELETE_BOOKS_READ, id})}
-type deleteBookRecomen = {
-    type: typeof deleteBookRecomend
-    id: number
-}
+
 export const deleteBookRecomendAC = (id: number): deleteBookRecomen => ({type: deleteBookRecomend, id})
-type SvapRightACType = {
-    type: typeof SvapRight
-    id: number
-}
+
 export const SvapRightAC = (id: number): SvapRightACType => ({type: SvapRight, id})
+
 export default BooksReducer
