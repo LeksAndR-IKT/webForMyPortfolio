@@ -7,6 +7,7 @@ export type objects = {
 }
 export type initialStateNASAType = {
 objects: objects
+countPage: number
 numberPage: number
 }
 let initialStateNASA: initialStateNASAType = {
@@ -17,7 +18,8 @@ let initialStateNASA: initialStateNASAType = {
             dop_info: []
         }
     },
-    numberPage: 0
+    countPage: 1,//количество фотографий
+    numberPage: 0//текущая страничка
 }
 
 const NASAreducer = (state: initialStateNASAType = initialStateNASA, action: ActionsTypes): initialStateNASAType => {
@@ -29,11 +31,11 @@ const NASAreducer = (state: initialStateNASAType = initialStateNASA, action: Act
                 numberPage: action.numberPage
             }
         }
-        case(getNewPageFoto): 
+        case(getNewPageFoto): //получение фотографий с марсоходов
         {
-            const fotos = action.foto.map((el) => el.img_src)
-            const info_date = action.foto.map((el) => el.earth_date)
-            const info_dop = action.foto.map((el) => el.camera.full_name)
+            const fotos = action.foto.map((el) => el.img_src)//фотографии
+            const info_date = action.foto.map((el) => el.earth_date)//дата фотографий
+            const info_dop = action.foto.map((el) => el.camera.full_name)//инфа о фотографиях
             return {
                 ...state,
                 objects: {
@@ -42,8 +44,8 @@ const NASAreducer = (state: initialStateNASAType = initialStateNASA, action: Act
                         date: [...info_date],
                         dop_info: [...info_dop]
                     }
-                }
-                
+                },
+                countPage: action.foto.length //количество фотографий
             }
         }
         
@@ -77,7 +79,8 @@ export const getPhotoSpaceTC = (numberPage: number): ThunkAction<Promise<void>, 
     return async (dispatch) => {
         let fot = await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=DEMO_KEY&sol=${numberPage}`)
         dispatch(getNewPageFotoTypeAC(fot.data.photos))
-        //console.log(fot.data.photos[0].img_src)
+        console.log(fot.data.photos.length)//338
+        
     }
 }
 

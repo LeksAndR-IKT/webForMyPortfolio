@@ -8,6 +8,7 @@ import { ThunkDispatch } from "redux-thunk"
 type MSTP = {
     numberPage: number
     DATA: objects
+    countPage: number
 }
 type MDTP = {
     switchingFotos: (numberPage: number) => void
@@ -18,7 +19,8 @@ export type PropsToNasa = OwnProps & MSTP & MDTP
 let mapStateToProps = (state: StoreType): MSTP => {
     return {
         numberPage: state.NASA.numberPage,
-        DATA: state.NASA.objects
+        DATA: state.NASA.objects,
+        countPage: state.NASA.countPage
     }
 }
 
@@ -26,7 +28,7 @@ let mapDispatchToProps = (dispatch: ThunkDispatch<StoreType, {}, ActionsTypes>):
     return {
         switchingFotos: (numberPage: number) => {
             dispatch(getPhotoSpaceTC(numberPage))
-        }
+        },
     }
 }
 

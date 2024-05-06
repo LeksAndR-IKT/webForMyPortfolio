@@ -6,18 +6,32 @@ import { PropsToNasa } from "./NASAContainer"
 
 
 let NASA: React.FC<PropsToNasa> = (props) => {
-    let getFoto = (e: React.MouseEvent<HTMLElement>) => {
-        debugger
-        e.preventDefault()
-        let num = 3
-        props.switchingFotos(num)
+    let massCountPage_loc: Array<number> = []
+    //props.switchingFotos(3)
+    for (let i = 1; i < Math.ceil(props.countPage / 20 + 1); i++) {
+        massCountPage_loc.push(i)
     }
-    let FocusInImg = () => {
-        console.log('asd')
+
+    const otrisovka = props.DATA?.foto.map((el, item) => 
+    {
+        return (item < props.numberPage) ? <div className={s.foto}><img src={el} alt="" ></img> </div> : <></>
+    })
+
+
+    let getNewPage = (numberPageLocal: number) => {
+        props.switchingFotos(numberPageLocal)
     }
-     const otrisovka = props.DATA?.foto.map((el) => <div className={s.foto} ><img src={el} tabIndex={1} alt = "" onBlur={()=>{FocusInImg()}}></img> </div>)
+
     return <div>
-        <div className={s.pages}><span onClick={getFoto}>1</span></div>
+        {
+            massCountPage_loc.map((el) => {
+                return <div className={s.pages}><span onClick={(e: React.MouseEvent<HTMLElement>) => {
+                    e.preventDefault()
+                    getNewPage(el)
+                }
+                }>{el}</span></div>
+            })
+        }
         <div>
             {otrisovka}
         </div>
