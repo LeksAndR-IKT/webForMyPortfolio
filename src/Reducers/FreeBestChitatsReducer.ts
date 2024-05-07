@@ -1,6 +1,6 @@
-export type InitialStateFree = {
-  DataMass: Array<{text: string, id: number, result: boolean}>
-}
+import {InitialStateFree, deleteChitatesType, addChitatType,
+  StateTrueOfChitatsType, StateFalseOfChitatsType, refactorTextType
+} from './TypesForReducers'
 
 let firstState = {
   DataMass:
@@ -57,34 +57,18 @@ const deleteChitat = "deleteChitat"
 const addNewChitat = "addNewChitat"
 const StateTrueOfChitats = "StateTrueOfChitats"
 const StateFalseOfChitats = "StateFalseOfChitats"
-const refactorText = "refactorText"
+const refactorTextFree = "refactorTextFree"
 
-type deleteChitatesType = {
-  type: typeof deleteChitat
-  id: number
-}
+
 export let deleteChitatesactioneCreater = (id: number): deleteChitatesType => { return ({ id, type: deleteChitat }) }//Удаление цитаты ( BestChitats.jsx )
-type addChitatType = {
-  type: typeof addNewChitat
-  text: string
-}
+
 export let addChitatActionCreater = (text: string): addChitatType => { return ({ text, type: addNewChitat }) } //добавление новой цитаты ( Free.jsx )
-type StateTrueOfChitatsType = {
-  type: typeof StateTrueOfChitats
-  id: number
-}
+
 export let StateTrueOfChitatsActionCreater = (id: number): StateTrueOfChitatsType => { return ({ id, type: StateTrueOfChitats }) }//Открытие поля для редактирования цитаты (BestChitatsContainer.jsx)
-type StateFalseOfChitatsType = {
-  type: typeof StateFalseOfChitats
-  id: number
-}
+
 export let StateFalseOfChitatsActionCreater = (id: number): StateFalseOfChitatsType => { return ({ id, type: StateFalseOfChitats }) }//Закрытие поля для редактирования цитаты (BestChitatsContainer.jsx)
-type refactorTextType = {
-  type: typeof refactorText
-  id: number
-  text: string
-}
-export let refactorTextActionCreator = (id: number, text: string): refactorTextType => { return ({ id, text, type: refactorText }) }
+
+export let refactorTextActionCreator = (id: number, text: string): refactorTextType => { return ({ id, text, type: refactorTextFree }) }
 
 export type ActionsTypes = deleteChitatesType | addChitatType | 
 StateTrueOfChitatsType | StateFalseOfChitatsType | refactorTextType
@@ -128,7 +112,7 @@ const FreeBestChitatsReducer = (state = firstState, action: ActionsTypes): Initi
         }
       }
 
-    case (refactorText)://Реадктирование текста (BestChitatsContainer.jsx)
+    case (refactorTextFree)://Реадктирование текста (BestChitatsContainer.jsx)
       {
         return {
           ...state,

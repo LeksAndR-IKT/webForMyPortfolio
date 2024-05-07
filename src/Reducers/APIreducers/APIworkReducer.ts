@@ -1,14 +1,8 @@
 import { StoreType } from '../../store';
 import axios from "axios"
 import { ThunkAction } from "redux-thunk"
+import {InitialStateAPI, GetIpACType, GetGeoLocationACType, getPriceBTCType,} from '../TypesForReducers'
 
-export type InitialStateAPI = {
-    users: Array<any>
-    ip: null | string
-    city: string
-    region: string
-    result: string
-}
 let localState: InitialStateAPI = {
     users: [],
     ip: null,
@@ -54,21 +48,11 @@ const APIworkReducer = (state = localState, action: ActionsTypes): InitialStateA
 export type ActionsTypes = GetIpACType | GetGeoLocationACType | getPriceBTCType
 
 
-type GetIpACType = {
-    type: typeof getIp
-    ip: string
-}
+
 export let getIpAC = (ip: string): GetIpACType => ({ type: getIp, ip }) // Получение ip адреса
-type GetGeoLocationACType = {
-    type: typeof getGeoLoc
-    city: string
-    region: string
-}
+
 export let getGeoLocationAC = (city: string, region: string): GetGeoLocationACType => ({ type: getGeoLoc, city, region })//Получение геолокации по ip адресу
-export type getPriceBTCType = {
-    type: typeof getPriceBTC
-    result:string
-}
+
 export let getPriceBTC_AC = (result: string): getPriceBTCType => ({type: getPriceBTC, result})
 
 export const getPriceBTC_TC = (): ThunkAction<Promise<void>, StoreType, unknown, ActionsTypes> => {

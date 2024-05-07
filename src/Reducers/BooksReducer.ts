@@ -1,4 +1,4 @@
-import {InitialStateBook, DeleteBookReadACType, deleteBookRecomen, SvapRightACType} from './TypesForReducers'
+import {InitialStateBook, DeleteBookReadACType, deleteBookRecomen, SvapRightACType, ActionsTypesBook} from './TypesForReducers'
 
 let locationState: InitialStateBook = {
     booksRead: [
@@ -46,7 +46,7 @@ const DELETE_BOOKS_READ = "DELETE_BOOKS_READ"
 const deleteBookRecomend = "deleteBookRecomend"
 const SvapRight = "SvapRight"
 
-const BooksReducer = (state = locationState, action: ActionsTypes): InitialStateBook => {
+const BooksReducer = (state = locationState, action: ActionsTypesBook): InitialStateBook => {
     switch(action.type){
         case(DELETE_BOOKS_READ):
         {
@@ -79,8 +79,6 @@ const BooksReducer = (state = locationState, action: ActionsTypes): InitialState
         }
     }
 }
-
-export type ActionsTypes = DeleteBookReadACType | deleteBookRecomen | SvapRightACType
 
 export const deleteBookReadAC = (id: number): DeleteBookReadACType => {return ({type:DELETE_BOOKS_READ, id})}
 

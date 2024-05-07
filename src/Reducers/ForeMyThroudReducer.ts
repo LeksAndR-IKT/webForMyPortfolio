@@ -1,7 +1,7 @@
-export type InitialStateFore = {
-  currentText: string
-  str: Array<{text: string, id: number, result: boolean}>
-}
+import {InitialStateFore, deleteZapissActionCreatorType, reverteActionCreatorType,
+  downEnterActionCreatorType, refactorTextActionCretorType, addOneThoughtActionCreaterType
+} from './TypesForReducers'
+
 class onePost {
   text: string
   id: number
@@ -108,32 +108,14 @@ const ForeMyThroudReducer = (state = firstState, action: ActionsTypes): InitialS
 export type ActionsTypes = deleteZapissActionCreatorType | reverteActionCreatorType | downEnterActionCreatorType | 
 refactorTextActionCretorType | addOneThoughtActionCreaterType
 
-type deleteZapissActionCreatorType = {
-  id: number
-  type: typeof deleteZapiss
-}
 export let deleteZapissActionCreator = (id: number): deleteZapissActionCreatorType => { return ({ id, type: deleteZapiss }) }//Удаление записи ( ContentZapis.jsx )
-type reverteActionCreatorType = {
-  type: typeof reverte
-  id: number
-}
-export let reverteActionCreator = (id: number): reverteActionCreatorType => { return ({ id, type: reverte }) }//Открыть поле для редактирования
-type downEnterActionCreatorType = {
-  type: typeof downEnter
-  id: number
-}
-export let downEnterActionCreator = (id: number): downEnterActionCreatorType => { return ({ id, type: downEnter }) }//Закрыть поле для редактирования
-type refactorTextActionCretorType = {
-  type: typeof refactorText
-  id: number
-  text: string
-}
-export let refactorTextActionCretor = (id: number, text: string): refactorTextActionCretorType => { return ({ id, text, type: refactorText }) }//Редактирование текста
-type addOneThoughtActionCreaterType = {
-  type: typeof addOneThought
-  text: string
-}
-export let addOneThoughtActionCreater = (text: string): addOneThoughtActionCreaterType => { return ({ text, type: addOneThought }) } //добавление новой цитаты ( Fore.jsx )
 
+export let reverteActionCreator = (id: number): reverteActionCreatorType => { return ({ id, type: reverte }) }//Открыть поле для редактирования
+
+export let downEnterActionCreator = (id: number): downEnterActionCreatorType => { return ({ id, type: downEnter }) }//Закрыть поле для редактирования
+
+export let refactorTextActionCretor = (id: number, text: string): refactorTextActionCretorType => { return ({ id, text, type: refactorText }) }//Редактирование текста
+
+export let addOneThoughtActionCreater = (text: string): addOneThoughtActionCreaterType => { return ({ text, type: addOneThought }) } //добавление новой цитаты ( Fore.jsx )
 
 export default ForeMyThroudReducer;
