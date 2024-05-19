@@ -7,7 +7,7 @@ import { PropsToNasa } from "./NASAContainer"
 
 let NASA: React.FC<PropsToNasa> = (props) => {
     let massCountPage_loc: Array<number> = []
-    //props.switchingFotos(3)
+    //
     for (let i = 1; i < Math.ceil(props.countPage / 20 + 1); i++) {
         massCountPage_loc.push(i)
     }
@@ -27,7 +27,9 @@ let NASA: React.FC<PropsToNasa> = (props) => {
             massCountPage_loc.map((el) => {
                 return <div className={s.pages}><span onClick={(e: React.MouseEvent<HTMLElement>) => {
                     e.preventDefault()
+                    props.switchingFotos(3)
                     getNewPage(el)
+                    
                 }
                 }>{el}</span></div>
             })

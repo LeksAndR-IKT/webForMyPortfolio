@@ -2,6 +2,8 @@ import React from 'react'
 import s from './APIwork.module.css'
 import { TypeProps } from './APIworkContainer'
 import { NavLink } from 'react-router-dom'
+import ButtonForAPI from './ButtonForAPI.tsx'
+
 
 let APIwork: React.FC<TypeProps> = (props) => {
 
@@ -20,19 +22,19 @@ let APIwork: React.FC<TypeProps> = (props) => {
     }
     return <div className={s.osnov}>
         <div className={s.butOne}>
-            <button onClick={getIP}>Получить ip компьютера</button>
+            <ButtonForAPI functionForButton={getIP} name="Получить ip компьютера" />
         </div>
 
         <div className={s.butTwo}>
-            <button onClick={getGeoLocation}>Получить местоположение по ip</button>
+            <ButtonForAPI functionForButton={getGeoLocation} name="Получить местоположение по ip" />
         </div>
 
         <div className={s.butFree}>
-            <button onClick={getPriceBTC}>Узнать цену на Биткоин (BTC)</button>
+            <ButtonForAPI functionForButton={getPriceBTC} name="Узнать цену на Биткоин (BTC)" />
         </div>
 
         <div className={s.butNASA}>
-                <NavLink to='/fotoNasa'>Посмотреть фотографии космоса, сделанные NASA</NavLink>
+            <NavLink to='/fotoNasa'>Посмотреть фотографии космоса, сделанные NASA</NavLink>
         </div>
 
     </div>

@@ -18,9 +18,8 @@ class Users extends React.Component {
         this.props.setUsers(el, this.props.usersCountInPage)
         this.props.switching(el)
         for (let i = el; i< el+10; i++){
-            this.state.mass.map(el => el)
+            this.state.mass.map(element => element = el)
         }
-
     }
     shouldComponentUpdate(newProps, newState){
         return newProps !== this.props || newState !== this.state
