@@ -7,16 +7,23 @@ import React from 'react'
 class Users extends React.Component {
     constructor(props) {
         super(props)
-        this.mass = []
-        for (let i = 1; i < 10; i++) {
-            this.mass.push(i)
+        this.state = {
+            mass: []
         }
-
+        for (let i = 1; i < 10; i++) {
+            this.state.mass.push(i)
+        }
     }
     switching = (el) => {
         this.props.setUsers(el, this.props.usersCountInPage)
         this.props.switching(el)
+        for (let i = el; i< el+10; i++){
+            this.state.mass.map(el => el)
+        }
 
+    }
+    shouldComponentUpdate(newProps, newState){
+        return newProps !== this.props || newState !== this.state
     }
     componentDidMount() {
         this.props.setUsers(this.props.currentPage, this.props.usersCountInPage)
@@ -25,12 +32,12 @@ class Users extends React.Component {
         return <div className={s.osnov}>
             <div className={s.paginator}>
                 {
-                    this.mass.map((el) => {
+                    this.state.mass.map((el) => {
                         return <span className={this.props.currentPage === el ? s.pagener : s.span} onClick={(e) => { this.switching(el) }}>{el}</span>
                     })
                 }
                 ...
-                <span>{this.props.totalUsersCount}</span>
+                <span className={s.obcheeCount}>{this.props.totalUsersCount}</span>
             </div>
             <div className={s.usersList}>
                 {

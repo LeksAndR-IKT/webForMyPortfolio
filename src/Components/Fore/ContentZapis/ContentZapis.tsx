@@ -1,12 +1,11 @@
 import s from './ContentZapis.module.css'
 import { TypeProps } from './ContentZapisContainer.tsx'
 import delet from './delet.png'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 
 let ContentZapis: React.FC<TypeProps> = (props) => {
-    //debugger
-    //const [states, setState] = useState(props.state)
+    
     let refTextarea = useRef<HTMLTextAreaElement>(null)
 
     let deleteZapiss = (e: React.MouseEvent<HTMLElement>) => {//Удаление записи ( ContentZapis.jsx )
@@ -19,14 +18,19 @@ let ContentZapis: React.FC<TypeProps> = (props) => {
         props.reverte(props.id)
     }
 
-    let downEnter = (e: React.MouseEvent<HTMLElement>) => {//Закрыть поле для редактирования
+    let downEnter = (e: React.KeyboardEvent<HTMLElement>) => {//Закрыть поле для редактирования
         if (e.key === 'Enter') {
+            props.refactorText(props.id, newText)
             props.downEnter(props.id)
+            setNewText(props.Fore.str[props.id].text)
         }
     }
 
+    const [newText, setNewText] = useState(props.Fore.str[props.id].text)
+    
     let refactorText = () => {//Редактирование текста
         if (refTextarea.current){
+            setNewText(refTextarea.current.value)
             props.refactorText(props.id, refTextarea.current.value)
         }
     }
@@ -43,7 +47,7 @@ let ContentZapis: React.FC<TypeProps> = (props) => {
             {
                 props?.Fore?.str[props?.id]?.result &&
                 <div className={s.osnov} >
-                    <textarea className={s.inpat} type="text" value = {props.Fore.str[props.id].text}
+                    <textarea className={s.inpat} value = {newText}
                         onKeyPress={downEnter} onChange={refactorText} ref={refTextarea}/><br />
                 </div>
             }
